@@ -7,6 +7,10 @@ const API_URL = "https://api.openweathermap.org/data/2.5/weather";
 // Base source icon
 const API_URL_ICON = "http://openweathermap.org/img/wn/";
 
+const API_URL2 = "https://api.openweathermap.org/data/2.5/forecast/daily";
+
+const cnt = 3;
+
 
 class API_WEATHER{
   constructor(city){
@@ -30,5 +34,12 @@ class API_WEATHER{
   // Retourne l'element HTML de l'icon symbolisant la méteo.
   getHTMLElementFromIcon(icon){
     return `<img src=${API_URL_ICON}${icon}@2x.png class="weather-icon"/>`
+  }
+
+  getThreeDayForecast(){
+    return axios
+    .get(`${API_URL2}?q=${this.city}&cnt=${cnt}&appid=${API_KEY}`, {
+      crossdomain: true
+    })
   }
 }
