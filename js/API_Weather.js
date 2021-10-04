@@ -9,7 +9,7 @@ const API_URL_ICON = "http://openweathermap.org/img/wn/";
 
 const API_URL2 = "https://api.openweathermap.org/data/2.5/forecast/daily";
 
-const cnt = 3;
+const cnt = 4;
 
 
 class API_WEATHER{
@@ -38,7 +38,7 @@ class API_WEATHER{
 
   getThreeDayForecast(){
     return axios
-    .get(`${API_URL2}?q=${this.city}&cnt=${cnt}&appid=${API_KEY}`, {
+    .get(`${API_URL2}?q=${this.city}&cnt=${cnt}&units=metric&appid=${API_KEY}`, {
       crossdomain: true
     })
   }
